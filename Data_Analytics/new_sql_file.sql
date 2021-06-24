@@ -1,2 +1,2 @@
 
-select * from clarinets;
+select * from french_horns;
