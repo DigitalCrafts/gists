@@ -1,0 +1,6 @@
+SELECT
+    ...column(s) to retrieve...
+FROM
+    ...table(s) to select from ...
+WHERE
+    ...conditions to satisfy
