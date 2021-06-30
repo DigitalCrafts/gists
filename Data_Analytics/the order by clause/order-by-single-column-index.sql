@@ -7,7 +7,7 @@ SELECT
 FROM
     items   
 WHERE
-    customer_name =  'CONAGRA FROZEN FDS'  
-     AND gross_weight  <  10  
+    customer_name = 'CONAGRA FROZEN FDS'  
+    AND gross_weight  <  10  
 ORDER BY
      4
