@@ -11,6 +11,9 @@ SELECT
     -- You can use as many columns and operators as you'd like
     column1 + column2 / column3 - column4
 
+    -- You can round a column to a specific number of decimal values. Here we are rounding to 1 decimal place
+    ROUND(column1 * column2, 1)
+
     -- You can round up or down by using the FLOOR() and CEIL() functions
     FLOOR(column1 * column2),
     CEILING(column1 * column2),
