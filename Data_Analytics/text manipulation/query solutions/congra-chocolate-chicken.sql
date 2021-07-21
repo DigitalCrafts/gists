@@ -3,7 +3,7 @@ SELECT
     item_code,
     item_description,
     CASE 
-		WHEN LOWER(SUBSTRING(storage_type,1,1)) = 'f' THEN 'Freezer'
+        WHEN LOWER(SUBSTRING(storage_type,1,1)) = 'f' THEN 'Freezer'
         WHEN LOWER(SUBSTRING(storage_type,1,1)) = 'c' THEN 'Cooler'
         ELSE 'Other'
 	END AS "storage_category",
