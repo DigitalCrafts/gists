@@ -6,7 +6,7 @@ SELECT
     tie,
     high,
     billing_stack_qty,
-    CEIL(tie * high * billing_stack_qty)
+    tie * high * billing_stack_qty
 FROM
     items
 WHERE
