@@ -1,9 +1,9 @@
 SELECT
-	im.item_code,
+    im.item_code,
     im.customer_id,
     im.facility_id,
     ia.activity_type,
-	ia.units,
+    ia.units,
     FLOOR(ABS(ia.units) / (im.billing_stack_qty * im.tie * im.high)) AS "full_pallet_pick",
     ia.filter_date
 FROM items AS im
