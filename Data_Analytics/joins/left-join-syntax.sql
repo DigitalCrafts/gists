@@ -6,4 +6,4 @@ SELECT
     ...
 FROM 
     table_1
-FULL OUTER JOIN table_2 ON table_1.primary_key = table_2.foreign_key
+    LEFT JOIN table_2 ON table_1.primary_key = table_2.foreign_key
