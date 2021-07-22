@@ -9,8 +9,8 @@ SELECT
     ia.gross_weight,
     ia.filter_date
 FROM
-    globali3pl.items as im
-    INNER JOIN globali3pl.inventory_activity as ia 
+    items as im
+    INNER JOIN inventory_activity as ia 
     ON ia.item_code = im.item_code
         AND ia.facility_id = im.facility_id
         AND ia.customer_id = im.customer_id
