@@ -1,6 +1,6 @@
 SELECT
     im.facility_name,
-    COUNT(im.item_code) AS "No. distincts items received"
+    COUNT(DISTINCT im.item_code) AS "No. distincts items received"
 FROM items AS im
 INNER JOIN inventory_activity AS ia ON im.item_code = ia.item_code
     AND im.facility_id = ia.facility_id
