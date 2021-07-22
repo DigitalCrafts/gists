@@ -3,7 +3,8 @@ SELECT
     im.customer_name AS "Customer name",
     ia.activity_type AS "Activity type",
     ia.units AS "No. of units",
-    ia.filter_date AS "Activity date"
+    ia.filter_date AS "Activity date",
+    DATE_PART('dow', ia.filter_date) AS "Activity week day"
 FROM
     items AS im
     INNER JOIN inventory_activity AS ia ON ia.item_code = im.item_code 
