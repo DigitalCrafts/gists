@@ -1,5 +1,5 @@
 SELECT
-	im.item_code,
+    im.item_code,
     im.customer_id,
     im.facility_id,
     ia.filter_date,
@@ -16,12 +16,12 @@ SELECT
     -- full pallet picks
     FLOOR(N / fps) AS "fpp",
     fpp * fps AS "fpq",
-    CASE WHEN fpp >= 1 THEN 1 ELSE 0 END AS "fpl",
+    CASE WHEN fpp >= 1 THEN 1 ELSE 0 END AS "fpl"
         
 FROM items AS im
 INNER JOIN inventory_activity AS ia ON
-	im.item_code = ia.item_code
+    im.item_code = ia.item_code
     AND im.facility_id = ia.facility_id
     AND im.customer_id = ia.customer_id
-where
+WHERE
 	ia.activity_type = 'ORDER'

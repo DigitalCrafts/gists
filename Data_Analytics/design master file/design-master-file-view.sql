@@ -1,6 +1,6 @@
 CREATE VIEW globali3pl.design_master_file_view AS
 SELECT
-	im.item_code,
+    im.item_code,
     im.customer_id,
     im.facility_id,
     ia.filter_date,
@@ -31,12 +31,12 @@ SELECT
 
     -- case picks
     N - fpq - hpq - lpq AS "cpq",
-    cASE WHEN cpq >= 1 THEN 1 ELSE 0 END AS "cpl",
+    cASE WHEN cpq >= 1 THEN 1 ELSE 0 END AS "cpl"
         
 FROM items AS im
 INNER JOIN inventory_activity AS ia ON
-	im.item_code = ia.item_code
+    im.item_code = ia.item_code
     AND im.facility_id = ia.facility_id
     AND im.customer_id = ia.customer_id
-where
+WHERE
 	ia.activity_type = 'ORDER'
