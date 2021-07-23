@@ -1,0 +1,3 @@
+CREATE VIEW database_name.design_master_file_view AS
+SELECT
+    ...design master file query...
