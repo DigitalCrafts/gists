@@ -1,6 +1,6 @@
 SELECT
-	ia.filter_date AS "Date",
-	SUM(FLOOR(ABS(ia.units) / (im.billing_stack_qty * im.tie * im.high ))) AS "full_pallet_pick"
+    ia.filter_date AS "Date",
+    SUM(FLOOR(ABS(ia.units) / (im.billing_stack_qty * im.tie * im.high ))) AS "full_pallet_pick"
 FROM items AS im
 INNER JOIN inventory_activity AS ia ON
 	im.item_code = ia.item_code

@@ -1,7 +1,7 @@
 SELECT
-	im.item_code AS "Item code",
+    im.item_code AS "Item code",
     im.item_description AS "Item description",
-	SUM(FLOOR(ABS(ia.units) / (im.billing_stack_qty * im.tie * im.high))) AS "full_pallet_pick"
+    SUM(FLOOR(ABS(ia.units) / (im.billing_stack_qty * im.tie * im.high))) AS "full_pallet_pick"
 FROM globali3pl.items AS im
 INNER JOIN inventory_activity AS ia ON 
     im.item_code = ia.item_code
