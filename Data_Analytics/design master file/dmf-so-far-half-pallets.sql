@@ -29,4 +29,4 @@ INNER JOIN inventory_activity AS ia ON
     AND im.facility_id = ia.facility_id
     AND im.customer_id = ia.customer_id
 WHERE
-	ia.activity_type = 'ORDER'
+    ia.activity_type = 'ORDER'
