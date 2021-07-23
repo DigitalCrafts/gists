@@ -1,0 +1,9 @@
+CREATE VIEW database.view_name AS
+SELECT
+    column1, 
+    column2, 
+    ...
+FROM
+    some_table(s)...
+WHERE
+    some_conditions...
