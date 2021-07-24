@@ -68,7 +68,7 @@ SELECT
     item_description,
     gross_weight,
     storage_type
-    FROM
+FROM
     items
 WHERE
     storage_type = 'Freezer'
