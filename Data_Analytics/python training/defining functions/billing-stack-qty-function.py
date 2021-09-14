@@ -5,10 +5,8 @@ bsq = 1
 
 # define a function calculate pallet size
 def calculate_pallet_size(tie, high, bsq):
-
     # multiply tie, high, and bsq
     pallet_size = tie * high * bsq
-
     # return pallet size so it can be used later in the program
     return pallet_size
 
