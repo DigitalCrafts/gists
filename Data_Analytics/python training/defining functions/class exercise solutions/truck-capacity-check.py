@@ -12,8 +12,8 @@ def truck_capacity_check(item_to_load_weight, current_weight, max_weight):
     capacity_remaining = max_weight - current_weight
 
     # check if the truck can carry the weight of the material
-    # - if yes --> capacity_check is TRUE
-    # - if no --> capacity_check is FALSE
+    # - if yes --> truck has enough capacity
+    # - if no --> truck does NOT have enough capacity
     if item_to_load_weight <= capacity_remaining:
         capacity_check = "OK to load"
 
