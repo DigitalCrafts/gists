@@ -1,5 +1,6 @@
 def calculate_item_weight(gross_weight, no_units):
 
+    # calculate the item's total weight
     total_item_weight = gross_weight * no_units
 
     return total_item_weight
@@ -66,15 +67,20 @@ truck_list = [
     }
 ]
 
-# loop through all items in items_list
+# outer loop - iterate through all items in items_list
 for item in items_list:
 
+    # calcuate the weight of the current item
     weight_to_load = calculate_item_weight(item["gross_weight"], item["units"])
     
+    # print the current item's description (use %s for string) and weight (using %d for float)
     print("Checking capacity for: %s; Total weight to load: %d" % (item["item_description"], weight_to_load))
 
+    # inner loop - iterate through all trucks in truck_list
     for truck in truck_list:
 
+        # determine if item can be loaded onto current truck
         load_status = truck_capacity_check(weight_to_load, truck["current_weight"], truck["max_weight"])
 
+        # print out current truck (use %s for string) and result of the capacity check (use %s for string)
         print("%s: %s" % (truck["truck_id"], load_status))
