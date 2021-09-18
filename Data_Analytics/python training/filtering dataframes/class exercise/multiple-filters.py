@@ -1,7 +1,7 @@
 import pandas as pd
 
 # declare file path and load csv as df
-file_path = "C:/Users/mfcos/Desktop/full stack analytics/DigitalCrafts/trainings/Americold/python training/lessons/session-2/installing packages/"
+file_path = "...path to your file..."
 items_df = pd.read_csv(file_path + "items_sample.csv")
 
 # create TRUE/FALSE logical masks (optional but encouraged!)
