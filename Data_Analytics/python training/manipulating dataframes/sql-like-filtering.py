@@ -11,7 +11,7 @@ print(items_df[(items_df["gross_weight"] >= 15) & (items_df["units"] >= 10)])
 print(items_df[(items_df["gross_weight"] >= 15) | (items_df["units"] >= 10)])
 
 # SQL-like BETWEEN/AND
-print(items_df[(items_df["gross_weight"] >= 15) | (items_df["gross_weight"] <= 16)])
+print(items_df[(items_df["gross_weight"] >= 15) & (items_df["gross_weight"] <= 16)])
 
 # SQL-like IN (...)
 print(items_df[items_df["item_code"].isin(["84500", "84400"])])
@@ -25,7 +25,7 @@ print(items_df[items_df["item_description"].str.startswith("COOKIE")])
 # SQL-like wildcard match text%
 print(items_df[items_df["item_description"].str.endswith("BAR")])
 
-# complex filter using masks
+# complex filter using masks - multiple BETWEEN/AND
 mask_min_weight = (items_df["gross_weight"] >= 15)
 mask_max_weight = (items_df["gross_weight"] <= 16)
 mask_min_units = (items_df["units"] > 10)
