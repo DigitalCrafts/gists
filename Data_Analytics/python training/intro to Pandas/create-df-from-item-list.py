@@ -28,5 +28,4 @@ items_list = [
 # convert items into a df
 items_df = pd.DataFrame(items_list)
 
-# print our items now stored as a df
 print(items_df)
