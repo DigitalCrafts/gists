@@ -10,6 +10,13 @@ print(items_df[(items_df["gross_weight"] >= 15) & (items_df["units"] >= 10)])
 # multiple OR conditions
 print(items_df[(items_df["gross_weight"] >= 15) | (items_df["units"] >= 10)])
 
+# complex filter using masks
+mask_min_weight = (items_df["gross_weight"] >= 15)
+mask_max_weight = (items_df["gross_weight"] <= 16)
+mask_min_units = (items_df["units"] > 10)
+mask_max_units = (items_df["units"] < 25)
+print(items_df[((mask_min_weight & mask_max_units) | (mask_min_units & mask_max_units))])
+
 # SQL-like BETWEEN/AND
 print(items_df[(items_df["gross_weight"] >= 15) | (items_df["gross_weight"] <= 16)])
 
