@@ -2,8 +2,7 @@ import pandas as pd
 from pandas.core.reshape.merge import merge
 
 # load items and inventory_activity from csv
-# file_path = "C:/...the path to your file.../"
-file_path = "C:/Users/mfcos/Desktop/full stack analytics/DigitalCrafts/trainings/Americold/python training/lessons/session-2/installing packages/"
+file_path = "C:/...the path to your file.../"
 df_items = pd.read_csv(file_path + "items_sample.csv")
 df_inventory_activity = pd.read_csv(file_path + "inventory_activity_sample.csv")
 
