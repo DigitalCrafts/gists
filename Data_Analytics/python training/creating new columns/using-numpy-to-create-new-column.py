@@ -2,7 +2,7 @@ import pandas as pd
 import numpy as np
 
 # load sample items from .csv
-file_path = "C:/Users/mfcos/Desktop/full stack analytics/DigitalCrafts/trainings/Americold/python training/lessons/session-2/installing packages/"
+file_path = "C:/...the path to your file.../"
 items_df = pd.read_csv(file_path + "items_sample.csv")
 
 # add new columns using np functions floor/ceil
