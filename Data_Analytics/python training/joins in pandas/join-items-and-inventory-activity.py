@@ -1,5 +1,4 @@
 import pandas as pd
-from pandas.core.reshape.merge import merge
 
 # load items and inventory_activity from csv
 file_path = "C:/...the path to your file.../"
