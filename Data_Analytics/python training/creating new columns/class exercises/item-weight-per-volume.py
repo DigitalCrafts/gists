@@ -2,8 +2,7 @@ import pandas as pd
 import numpy as np
 
 # load sample items from .csv
-file_path = "C:/...path to your file.../"
-items_df = pd.read_csv(file_path + "items_sample.csv")
+items_df = pd.read_csv("items_sample.csv")
 
 # filter for only items which contain "CKN" or "CHICKEN" in the description
 items_df = items_df[items_df["item_description"].str.contains("CKN") | items_df["item_description"].str.contains("CHICKEN")]
