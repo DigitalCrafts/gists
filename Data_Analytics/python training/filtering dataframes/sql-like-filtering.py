@@ -1,38 +1,50 @@
 import pandas as pd
 
-items_df = pd.read_csv("items.csv")
+items_df = pd.read_csv("items_sample.csv")
+cols = ["item_code", "item_description", "gross_weight", "unit_width"]
 
 print("multiple AND conditons")
-print(items_df[(items_df["gross_weight"] >= 15) & (items_df["units"] >= 10)])
+items_dff = items_df[(items_df["gross_weight"] >= 15) & (items_df["unit_width"] >= 10)]
+print(items_dff[cols])
 print("")
 
 print("multiple OR conditions")
-print(items_df[(items_df["gross_weight"] >= 15) | (items_df["units"] >= 10)])
+items_dff = items_df[(items_df["gross_weight"] >= 15) | (items_df["unit_width"] >= 10)]
+print(items_dff[cols])
 print("")
 
 print("SQL-like BETWEEN/AND")
-print(items_df[(items_df["gross_weight"] >= 15) & (items_df["gross_weight"] <= 16)])
+items_dff = items_df[(items_df["gross_weight"] >= 15) & (items_df["gross_weight"] <= 30)]
+print(items_dff[cols])
 print("")
 
 print("SQL-like IN (...)")
-print(items_df[items_df["item_code"].isin(["84500", "84400"])])
+items_dff = items_df[items_df["item_code"].isin(["item_code", "item_description", "gross_weight", "unit_width"])]
+print(items_dff[cols])
 print("")
 
 print("SQL-like wildcard match %text%")
-print(items_df[items_df["item_description"].str.contains("SHORT")])
+items_dff = items_df[items_df["item_description"].str.contains("CKN BST")]
+print(items_dff[cols])
 print("")
 
 print("SQL-like wildcard match %text")
-print(items_df[items_df["item_description"].str.startswith("COOKIE")])
+items_dff = items_df[items_df["item_description"].str.startswith("CKN")]
+print(items_dff[cols])
 print("")
 
-print("SQL-like wildcard match text%")
-print(items_df[items_df["item_description"].str.endswith("BAR")])
+print("SQL-like wildcard match %text")
+items_dff = items_df[items_df["item_description"].str.endswith("CKN")]
+print(items_dff[cols])
 print("")
 
 print("complex filter using masks - multiple BETWEEN/AND")
-mask_min_weight = (items_df["gross_weight"] >= 15)
-mask_max_weight = (items_df["gross_weight"] <= 16)
-mask_min_units = (items_df["units"] > 10)
-mask_max_units = (items_df["units"] < 25)
-print(items_df[((mask_min_weight & mask_max_weight) | (mask_min_units & mask_max_units))])
+mask_min_weight = (items_df["gross_weight"] >= 20)
+mask_max_weight = (items_df["gross_weight"] <= 40)
+mask_min_units = (items_df["unit_width"] > 10)
+mask_max_units = (items_df["unit_width"] < 25)
+items_dff = items_df[(
+    (mask_min_weight & mask_max_weight) | 
+    (mask_min_units & mask_max_units)
+)]
+print(items_dff[cols])

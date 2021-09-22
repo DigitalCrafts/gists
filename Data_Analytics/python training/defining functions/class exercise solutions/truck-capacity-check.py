@@ -1,5 +1,5 @@
 def calculate_item_weight(gross_weight, no_units):
-
+    
     # calculate the item's total weight
     total_item_weight = gross_weight * no_units
 
@@ -14,11 +14,14 @@ def truck_capacity_check(item_to_load_weight, current_weight, max_weight):
     # check if the truck can carry the weight of the material
     # - if yes --> truck has enough capacity
     # - if no --> truck does NOT have enough capacity
+    
     if item_to_load_weight <= capacity_remaining:
         capacity_check = "OK to load"
-
-    elif item_to_load_weight > capacity_remaining:
+    else:
         capacity_check = "Not enough capacity!"
+
+    # elif item_to_load_weight > capacity_remaining:
+    #      capacity_check = "Not enough capacity!"
 
     return capacity_check
 
