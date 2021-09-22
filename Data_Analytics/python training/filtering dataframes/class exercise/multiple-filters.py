@@ -1,8 +1,7 @@
 import pandas as pd
 
 # declare file path and load csv as df
-file_path = "...path to your file..."
-items_df = pd.read_csv(file_path + "items_sample.csv")
+items_df = pd.read_csv("items_sample.csv")
 
 # create TRUE/FALSE logical masks (optional but encouraged!)
 mask_storage_type = (items_df["storage_type"] == "Freezer")
