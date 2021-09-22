@@ -1,31 +1,36 @@
 import pandas as pd
 
-file_path = "C:/...the path to your file.../"
+items_df = pd.read_csv("items.csv")
 
-items_df = pd.read_csv(file_path + "items.csv")
-
-# multiple AND conditons
+print("multiple AND conditons")
 print(items_df[(items_df["gross_weight"] >= 15) & (items_df["units"] >= 10)])
+print("")
 
-# multiple OR conditions
+print("multiple OR conditions")
 print(items_df[(items_df["gross_weight"] >= 15) | (items_df["units"] >= 10)])
+print("")
 
-# SQL-like BETWEEN/AND
+print("SQL-like BETWEEN/AND")
 print(items_df[(items_df["gross_weight"] >= 15) & (items_df["gross_weight"] <= 16)])
+print("")
 
-# SQL-like IN (...)
+print("SQL-like IN (...)")
 print(items_df[items_df["item_code"].isin(["84500", "84400"])])
+print("")
 
-# SQL-like wildcard match %text%
+print("SQL-like wildcard match %text%")
 print(items_df[items_df["item_description"].str.contains("SHORT")])
+print("")
 
-# SQL-like wildcard match %text
+print("SQL-like wildcard match %text")
 print(items_df[items_df["item_description"].str.startswith("COOKIE")])
+print("")
 
-# SQL-like wildcard match text%
+print("SQL-like wildcard match text%")
 print(items_df[items_df["item_description"].str.endswith("BAR")])
+print("")
 
-# complex filter using masks - multiple BETWEEN/AND
+print("complex filter using masks - multiple BETWEEN/AND")
 mask_min_weight = (items_df["gross_weight"] >= 15)
 mask_max_weight = (items_df["gross_weight"] <= 16)
 mask_min_units = (items_df["units"] > 10)
