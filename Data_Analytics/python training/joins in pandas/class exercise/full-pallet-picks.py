@@ -30,7 +30,7 @@ df_items = df_items[(df_items["tie"] > 0) & (df_items["high"] > 0)]
 # merge sample data into a single dataframe
 # - use an inner join on matching rows
 # - join on matching item_code, facility_id, customer_id
-merged_df = pd.merge(
+df_item_activity = pd.merge(
     left = df_items, 
     right = df_inventory_activity,
     how = "inner",
@@ -39,9 +39,9 @@ merged_df = pd.merge(
 )
 
 # create a new column called pallet_size which is the product of tie x high
-merged_df["pallet_size"] = merged_df["tie"] * merged_df["high"]
+df_item_activity["pallet_size"] = df_item_activity["tie"] * df_item_activity["high"]
 
 # use the apply function to evaluate how many full pallets were selected for each activity
 # specifying axis = 1 the entire dataframe, one activity at a time
-merged_df["full_pallet_picks"] = merged_df.apply(get_num_pallets, axis = 1)
-print(merged_df[["item_code","item_description","facility_id","customer_id","filter_date", "tie", "high", "activity_type","units","pallet_size","full_pallet_picks"]])
+df_item_activity["full_pallet_picks"] = df_item_activity.apply(get_num_pallets, axis = 1)
+print(df_item_activity[["item_code","item_description","facility_id","customer_id","filter_date", "tie", "high", "activity_type","units","pallet_size","full_pallet_picks"]])
