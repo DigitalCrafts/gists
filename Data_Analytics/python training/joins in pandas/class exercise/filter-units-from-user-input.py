@@ -1,9 +1,8 @@
 import pandas as pd
 
 # load items and inventory_activity from csv
-file_path = "C:/...the path to your file.../"
-df_items = pd.read_csv(file_path + "items_sample.csv")
-df_inventory_activity = pd.read_csv(file_path + "inventory_activity_sample.csv")
+df_items = pd.read_csv("items_sample.csv")
+df_inventory_activity = pd.read_csv("inventory_activity_sample.csv")
 
 
 def get_min_units(user_input):
