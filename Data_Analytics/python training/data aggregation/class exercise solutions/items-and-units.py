@@ -10,6 +10,6 @@ agg_setup = {
 }
 
 # aggregate inventory activity data using agg_setup
-dfg_inventory_activity = df_inventory_activity.groupby("filter_date").agg(agg_setup)
+dfg_inventory_activity = df_inventory_activity.groupby("filter_date").agg(agg_setup).reset_index()
 
 print(dfg_inventory_activity)
