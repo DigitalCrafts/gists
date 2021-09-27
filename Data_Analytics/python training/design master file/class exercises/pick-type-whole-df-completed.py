@@ -21,41 +21,57 @@ def get_picks(units, size):
     # get the number of full pallets/layers by dividing units by size
     num_picks = round_to_zero(units / size)
 
+    # get the number of lines
+    if num_picks == 0:
+        num_lines = 0
+    elif num_picks < 0:
+        num_lines = -1
+    else:
+        num_lines = 1
+
     # get the number of units picked
     units_picked = num_picks*size
 
     # get the number of units left to pick 
     units_remaining = units - units_picked
 
-    return num_picks, units_picked, units_remaining
+    return num_picks, num_lines, units_picked, units_remaining
 
 
 def get_all_pick_data(activity):
 
     # get the number of full pallet picks and units NOT picked on the full pallet
-    full_pallet_picks, full_pallet_units, remaining_units = get_picks(units = activity["units"], size = activity["pallet_size"])
+    full_pallet_picks, full_pallet_lines, full_pallet_units, remaining_units = get_picks(units = activity["units"], size = activity["pallet_size"])
 
     # get the number of layer picks and units NOT picked on a layer
     if remaining_units != 0:
-        layer_picks, layer_units, remaining_units = get_picks(units = remaining_units, size = activity["tie"])
+        layer_picks, layer_lines, layer_units, remaining_units = get_picks(units = remaining_units, size = activity["tie"])
     else:
         layer_picks = 0
         layer_units = 0
     
     # get the number cases picked by eaches
-    if remaining_units != 0:
-        case_picks = 1
-    else:
+    if remaining_units == 0:
         case_picks = 0
+        case_lines = 0
+    elif remaining_units < 0:
+        case_picks = -1
+        case_lines = -1
+    else:
+        case_picks = 1
+        case_lines = 1
 
     # create a dictionary of the resulting pick type data
     activity_pick_data = {
         "full_pallet_picks":full_pallet_picks,
+        "full_pallet_lines":full_pallet_lines,
         "full_pallet_pick_units":full_pallet_units,
         "layer_picks":layer_picks,
+        "layer_lines":layer_lines,
         "layer_pick_units":layer_units,
         "case_picks":case_picks,
-        "case_pick_units":remaining_units
+        "case_lines":case_lines,
+        "case_units":remaining_units
     }
 
     return activity_pick_data
@@ -76,6 +92,7 @@ df_item_activity = pd.merge(
 )
 
 pick_data_cols = df_item_activity.apply(get_all_pick_data, axis = 1, result_type='expand')
+print(pick_data_cols)
 df_item_activity = pd.concat([df_item_activity, pick_data_cols], axis = 1)
 
 
