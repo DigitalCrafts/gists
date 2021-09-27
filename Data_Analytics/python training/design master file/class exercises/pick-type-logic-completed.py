@@ -44,6 +44,7 @@ def get_all_pick_data(tie, high, num_units):
         layer_picks, layer_lines, layer_units, remaining_units = get_picks(units = remaining_units, size = tie)
     else:
         layer_picks = 0
+        layer_lines = 0
         layer_units = 0
     
     # get the number cases picked by eaches
