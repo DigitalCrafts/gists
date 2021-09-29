@@ -30,5 +30,8 @@ df.columns = [
     "units"
 ]
 
+# print first few lines of the df
+print(df.head())
+
 # export dataframe to a csv
 df.to_csv("queried_data.csv", index=False)

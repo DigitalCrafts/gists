@@ -26,7 +26,7 @@ data = connect_to_db(query, query_filters)
 
 # convert data to a df
 df = pd.DataFrame(data)
-print(df.shape)
+
 # rename columns
 df.columns = [
     "facility_id",
@@ -43,6 +43,9 @@ df.columns = [
     "billing_stack_qty",
     "units"
 ]
+
+# print first few lines of the df
+print(df.head())
 
 # export dataframe to a csv
 df.to_csv("queried_data.csv", index=False)
